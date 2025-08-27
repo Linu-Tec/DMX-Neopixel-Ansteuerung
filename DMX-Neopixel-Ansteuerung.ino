@@ -89,5 +89,5 @@ void loop() {
   ansteuern(red, grn, blu);    // RGB Farben ansteuern
 
   // #4
-  delay(50);    // Pause zweischen den Abfragen
+  delay(50);    // Pause zwischen den Abfragen
 }
