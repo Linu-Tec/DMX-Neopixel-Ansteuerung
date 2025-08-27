@@ -7,7 +7,7 @@
   #include <avr/power.h>
 #endif
 
-
+// #1
 byte maxBrightness     = 200;    // Helligkeitsbereich [Aus..An] = [0..255], gedimmt halten für weniger Stromverbrauch
 
 
@@ -22,6 +22,7 @@ volatile byte Prevbrightness = 0,
      PrevBlue = 0;
 
 
+// #2
 // ------------------DMX-Channel-----------------------
 int dmxBaseCh = 400;    // Start Adresse
 
@@ -32,7 +33,7 @@ byte brightnessCh    =   3,   // DMX-Kanal-Offsets vom der Start Adresse
 
 
 // ------------------LED-----------------------
-
+// #3
 #define PIN 13 // Hier wird angegeben, an welchem digitalen Pin die WS2812 LEDs bzw. NeoPixel angeschlossen sind
 #define NUMPIXELS 60 // Hier wird die Anzahl der angeschlossenen WS2812 LEDs bzw. NeoPixel angegeben
 
@@ -87,5 +88,6 @@ void loop() {
 
   ansteuern(red, grn, blu);    // RGB Farben ansteuern
 
+  // #4
   delay(50);    // Pause zweischen den Abfragen
 }
