@@ -52,8 +52,8 @@ extern DMXSerialClass DMXSerial;
 void ansteuern(int r, int g, int b){	// Funktion zum NeoPixel ansteuern
   for(int x=0; x<=NUMPIXELS; x++){	// Durchläufe von Pixel 0 bis Pixel X
 	pixels.setPixelColor(x, pixels.Color(r,g,b));	// Farbe auf Kanal schreiben
-	pixels.show(); // Durchführen der Pixel-Ansteuerung
   }
+  pixels.show(); // Durchführen der Pixel-Ansteuerung
 }
 
 
@@ -89,5 +89,5 @@ void loop() {
   ansteuern(red, grn, blu);    // RGB Farben ansteuern
 
   // #4
-  delay(50);    // Pause zwischen den Abfragen
+  delay(30);    // Pause zwischen den Abfragen
 }
