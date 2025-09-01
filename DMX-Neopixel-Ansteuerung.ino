@@ -16,12 +16,6 @@ volatile byte brightness,
      grn,
      blu;
 
-volatile byte Prevbrightness = 0,
-     PrevRed = 0,
-     PrevGreen = 0,
-     PrevBlue = 0;
-
-
 // #2
 // ------------------DMX-Channel-----------------------
 int dmxBaseCh = 400;    // Start Adresse
@@ -69,8 +63,6 @@ void setup() {
 
 // -----------------------------------------------------------------------------Loop----------------------------------------------------------------------------------
 void loop() {
-  PrevRed = red;  PrevGreen = grn;  PrevBlue = blu;
-  
   // Farben
   red = DMXSerial.read(dmxBaseCh + redCh);     // Dmx Rot Wert auslesen
   grn = DMXSerial.read(dmxBaseCh + grnCh);     // Dmx Grün Wert auslesen
