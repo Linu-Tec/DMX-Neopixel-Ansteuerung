@@ -15,8 +15,6 @@ volatile byte brightness,
       grn,
       blu;
 
-// Vorherige Werte sind nicht mehr nötig, da wir die eingebaute Funktion der Bibliothek nutzen.
-
 
 // #2
 // ------------------DMX-Channel-----------------------
@@ -67,19 +65,23 @@ void setup() {
 void loop() {
   // Nur die LEDs aktualisieren, wenn ein neuer DMX-Datenframe empfangen wurde.
   if (DMXSerial.dataUpdated()) {
-    // Dmx Werte auslesen
+    
+    // Dmx Werte auslesen (Farben)
     red = DMXSerial.read(dmxBaseCh + redCh);
     grn = DMXSerial.read(dmxBaseCh + grnCh);
     blu = DMXSerial.read(dmxBaseCh + bluCh);
+
+    // Dmx Werte auslesen (Helligkeit)
     brightness = DMXSerial.read(dmxBaseCh + brightnessCh);
 
     // Optimierte Helligkeitsberechnung, die Skalierung vermeidet, wenn der Wert 0 ist.
     brightness = map(brightness, 1, 255, 0, maxBrightness);
 
     // Dimmwert auf Farben anwenden
-    red = (int) ( (float)red * (float)brightness / (float)maxBrightness );
-    grn = (int) ( (float)grn * (float)brightness / (float)maxBrightness );
-    blu = (int) ( (float)blu * (float)brightness / (float)maxBrightness );
+    red = float(red) * (float(brightness) / float(maxBrightness));
+    grn = float(grn) * (float(brightness) / float(maxBrightness));
+    blu = float(blu) * (float(brightness) / float(maxBrightness));
+
     
     // RGB Farben ansteuern
     ansteuern(red, grn, blu);
