@@ -11,7 +11,7 @@
 byte maxBrightness     = 200;    // Helligkeitsbereich [Aus..An] = [0..255], gedimmt halten für weniger Stromverbrauch
 
 
-volatile byte brightness,
+byte brightness,
      red,  // Speichern der empfangenen Kanalpegel-Steuerdaten
      grn,
      blu;
