@@ -1,0 +1,14 @@
+# === Zusätzliche ZIPs / Archive ===
+*.zip
+*.tar.gz
+
+# === Arduino IDE / PlatformIO ===
+build/
+bin/
+*.elf
+*.hex
+*.o
+
+# === Systemdateien ===
+.DS_Store
+Thumbs.db
